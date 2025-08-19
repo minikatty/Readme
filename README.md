@@ -20,8 +20,8 @@ pip install -r requirements.txt
     - LinearCNN.py:1D卷积层实现的线性FIR滤波器建模网络
     - VNN.py:Volterra网络的实现
     - VQE:Voice Quality Enhancement网络实现
-    - wavenet_control:膨胀卷积网络与
-    - utils:对音频序列进行精确切片Volterra网络的组合网络
+    - wavenet_control:膨胀卷积网络与Volterra网络的组合网络
+    - utils:对音频序列进行精确切片
   - trainModel/:保存训练好的模型文件
     - tained_*.pth:训练好的扬声器建模模型
     - control_*.pth:训练好的控制模型
