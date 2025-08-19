@@ -6,7 +6,6 @@
 
 本项目基于 Python3.9 开发，请按照以下步骤配置运行环境。
 
-
 ### 安装依赖
 所有依赖项都已列在 requirements.txt 文件中，使用下面命令安装：
 
@@ -19,7 +18,7 @@ pip install -r requirements.txt
     - 40DATA_idx.npy:用于划分数据集为训练集和测试集
     - data_process.m:用于处理最原始的数据来生成训练数据
   - eval_output/:main.eval_model()函数的输出的结果会保存在这里
-    - showdata.m:用于控制结果的可视化
+    - showdata.m:用于建模结果的可视化
   - model_set/:定义模型的代码
     - __init__.py:用于向外部暴露接口
     - Forward_WN.py:前向传播的膨胀卷积网络
@@ -36,6 +35,9 @@ pip install -r requirements.txt
     - calc_MD5.py:计算文件的MD5值
     - LoadData.py:读取mat文件
     - Warmup_scheduler.py：学习率调度器
+  - Results_plot
+    -ctrl_datashow.m:用于建模结果的可视化
+  - ctrl_results:控制网络结果的数据存放目录
   - .gitignore
   - README.md
   - main_ctrl.py:主程序
