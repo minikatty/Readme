@@ -30,10 +30,10 @@ pip install -r requirements.txt
     - calc_freq_loss.py:计算频域Loss
     - calc_MD5.py:计算文件的MD5值
     - LoadData.py:读取mat文件
-    - Warmup_scheduler.py：学习率调度器
+    - Warmup_scheduler.py: 学习率调度器
   - Results_plot
-    -ctrl_datashow.m:用于建模结果的可视化
-  - ctrl_results:控制网络结果的数据存放目录
+    - ctrl_datashow.m: 用于建模结果的可视化
+  - ctrl_results: 控制网络结果的数据存放目录
   - .gitignore
   - README.md
   - main_ctrl.py:主程序
