@@ -40,5 +40,5 @@ pip install -r requirements.txt
 
 
 ## 3. 如何运行
-本项目通过主脚本 main_ctrl.py 来执行
+本项目通过主脚本 main_ctrl.py 来执行，如果需用在运行命令行中直接赋给参数，需要导入Python标准库中解析命令行argparse模块进行改动
 
