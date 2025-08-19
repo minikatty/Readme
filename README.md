@@ -13,19 +13,15 @@ pip install -r requirements.txt
 
 ### 代码结构
 - lsk_control/
-  - dataset/:存放训练数据的文件夹，目前在.gitignore中屏蔽了该文件夹下.mat文件的上传
-    - B1data40.mat:用于训练的数据
-    - 40DATA_idx.npy:用于划分数据集为训练集和测试集
-    - data_process.m:用于处理最原始的数据来生成训练数据
-  - eval_output/:main.eval_model()函数的输出的结果会保存在这里
-    - showdata.m:用于建模结果的可视化
+  - dataset/:存放训练数据的文件夹，目前在.gitignore中屏蔽了该文件夹下.mat类型文件的上传
   - model_set/:定义模型的代码
     - __init__.py:用于向外部暴露接口
     - Forward_WN.py:前向传播的膨胀卷积网络
-    - LinearCNN.py:1D卷积层实现的线性FIR滤波器
-    - PolynomialCNN.py:1D卷积层实现的三阶多项式FIR滤波器
-    - VolterraFilter.py:Volterra网络的一种实现**需要修改**
-    - utils:对音频序列进行精确切片
+    - LinearCNN.py:1D卷积层实现的线性FIR滤波器建模网络
+    - VNN.py:Volterra网络的实现
+    - VQE:Voice Quality Enhancement网络实现
+    - wavenet_control:膨胀卷积网络与
+    - utils:对音频序列进行精确切片Volterra网络的组合网络
   - trainModel/:保存训练好的模型文件
     - tained_*.pth:训练好的扬声器建模模型
     - control_*.pth:训练好的控制模型
