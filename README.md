@@ -1,0 +1,54 @@
+# 项目标题：扬声器控制模型
+
+本项目提供了一个用于 **[基于微型扬声器数据驱动模型下的声场控制算法]** 的实现。
+
+## 1. 环境配置
+
+本项目基于 Python3.9 开发，请按照以下步骤配置运行环境。
+
+
+### 安装依赖
+所有依赖项都已列在 requirements.txt 文件中，使用下面命令安装：
+
+pip install -r requirements.txt
+
+### 代码结构
+- lsk_control/
+  - dataset/:存放训练数据的文件夹，目前在.gitignore中屏蔽了该文件夹下.mat文件的上传
+    - B1data40.mat:用于训练的数据
+    - 40DATA_idx.npy:用于划分数据集为训练集和测试集
+    - data_process.m:用于处理最原始的数据来生成训练数据
+  - eval_output/:main.eval_model()函数的输出的结果会保存在这里
+    - showdata.m:用于控制结果的可视化
+  - model_set/:定义模型的代码
+    - __init__.py:用于向外部暴露接口
+    - Forward_WN.py:前向传播的膨胀卷积网络
+    - LinearCNN.py:1D卷积层实现的线性FIR滤波器
+    - PolynomialCNN.py:1D卷积层实现的三阶多项式FIR滤波器
+    - VolterraFilter.py:Volterra网络的一种实现**需要修改**
+    - utils:对音频序列进行精确切片
+  - trainModel/:保存训练好的模型文件
+    - tained_*.pth:训练好的扬声器建模模型
+    - control_*.pth:训练好的控制模型
+  - util_func/:一些常用的工具函数
+    - __init__.py:用于向外部暴露接口
+    - calc_freq_loss.py:计算频域Loss
+    - calc_MD5.py:计算文件的MD5值
+    - LoadData.py:读取mat文件
+    - Warmup_scheduler.py：学习率调度器
+  - .gitignore
+  - README.md
+  - main_ctrl.py:主程序
+
+## 2. 数据和模型调用
+
+输入格式: 支持 .wav 格式的单声道 (mono) 音频文件。
+
+采样率: 推荐使用 16 kHz 采样率的音频，以获得最佳效果。如果输入其他采样率的音频，程序会自动重采样至 16 kHz 进行处理。
+
+示例数据: 我们在 examples/ 目录下提供了一些带有噪声的示例音频文件，您可以直接使用它们来测试。
+
+
+## 3. 如何运行
+本项目通过主脚本 main_ctrl.py 来执行。您可以通过命令行参数来指定输入和输出。
+
